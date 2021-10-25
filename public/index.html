@@ -38,4 +38,12 @@
       To create a production bundle, use `npm run build` or `yarn build`.
     -->
   </body>
+
+
+  <script>
+    let host = "smart-pet-feeder-frontend.herokuapp.com";
+    if ((host === window.location.host) && (window.location.protocol !== "https:")){
+      window.location.protocol = "https";
+    }
+  </script>
 </html>
