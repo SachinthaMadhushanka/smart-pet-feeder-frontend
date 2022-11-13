@@ -3,7 +3,6 @@ import dataFeatures from "../../data/About/about-corporate-business.json";
 import HeadingSection from "../../components/HeadingSection/HeadingSection";
 import FeatureBoxTwo from "../../elements/FeatureBox/FeatureBoxTwo";
 import video from "../../assets/video/PetFeeder.mp4";
-import "../../../node_modules/video-react/dist/video-react.css";
 import {Player} from "video-react";
 
 const About = () => (
