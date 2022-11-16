@@ -141,13 +141,24 @@ export default function SignUpForm(props) {
         reset: resetConfirmPassword,
     } = useInput("", Validators.isConfirmPassword.bind(null, password));
 
+
+    const {
+        value: petFeederId,
+        isValid: petFeederIdIsValid,
+        hasError: petFeederIdHasError,
+        valueChangeHandler: petFeederIdChangeHandler,
+        inputBlurHandler: petFeederIdBlurHandler,
+        reset: resetPetFeederId,
+    } = useInput("", Validators.isValidPetFeederID);
+
     let formIsValid = false;
     if (
         nameIsValid &&
         emailIsValid &&
         mobileNumberIsValid &&
         passwordIsValid &&
-        confirmPasswordIsValid
+        confirmPasswordIsValid &&
+        petFeederIdIsValid
     ) {
         formIsValid = true;
     }
@@ -156,7 +167,7 @@ export default function SignUpForm(props) {
         setIsLoading(true);
         try {
             await dispatch(
-              authActions.signup(name, email, mobileNumber, password, confirmPassword)
+              authActions.signup(name, email, mobileNumber, password, confirmPassword, petFeederId)
             );
             setError(null);
             setIsRegistered(true);
@@ -174,6 +185,7 @@ export default function SignUpForm(props) {
         resetPassword();
         resetName();
         resetConfirmPassword();
+        resetPetFeederId();
         setError(null)
         props.handleClose();
     };
@@ -293,6 +305,25 @@ export default function SignUpForm(props) {
                                 />
                                 {confirmPasswordHasError && (
                                     <p className="error-message">*Password does not match</p>
+                                )}
+                            </div>
+
+
+                            <div>
+                                <input
+                                    type="input"
+                                    id="petFeederID"
+                                    placeholder="Pet Feeder ID"
+                                    value={petFeederId}
+                                    onChange={petFeederIdChangeHandler}
+                                    onBlur={petFeederIdBlurHandler}
+                                    className="form-control invalid"
+                                    required="required"
+                                />
+                                {petFeederIdHasError && (
+                                    <p className="error-message">
+                                        *Pet feeder ID should be length of 10 characters
+                                    </p>
                                 )}
                             </div>
 

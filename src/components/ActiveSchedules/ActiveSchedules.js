@@ -124,7 +124,8 @@ const ActiveSchedules = (props) => {
     const feedNowHandler = () => {
         if (num_of_active_schedules >= remainingRounds)
             return;
-        dispatch(ScheduleActions.createSchedule("Feed Now", new Date(new Date().getTime() + 120000)));
+        // dispatch(ScheduleActions.createSchedule("Feed Now", new Date(new Date().getTime() + 120000)), true);
+        dispatch(ScheduleActions.createSchedule("Feed Now", new Date(new Date().getTime()), true));
         setOpenFeedNowConfirm(false);
 
 

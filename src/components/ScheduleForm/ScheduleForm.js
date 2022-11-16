@@ -99,7 +99,7 @@ export default function ScheduleForm(props) {
     if (schedule) {
       dispatch(ScheduleActions.updateSchedule(schedule._id, title, date_time));
     } else {
-      dispatch(ScheduleActions.createSchedule(title, date_time));
+      dispatch(ScheduleActions.createSchedule(title, date_time, false));
     }
 
     props.handleClose();

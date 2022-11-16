@@ -32,3 +32,7 @@ module.exports.isValidDateTime = (value) => {
 module.exports.isValidMessage = (value) => {
   return value.trim().length >= 20;
 };
+
+module.exports.isValidPetFeederID = (value) => {
+  return value.trim().length === 10;
+};

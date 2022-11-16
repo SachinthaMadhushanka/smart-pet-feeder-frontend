@@ -5,6 +5,7 @@ const initialState = {
     battery: 0,
     remainingRounds: 0,
     status: true,
+    lastFeedTime: 0
   },
 };
 
@@ -15,7 +16,9 @@ const stateReducer = (state = initialState, action) => {
         status: {
           battery: action.status.battery,
           remainingRounds: action.status.remainingRounds,
-          status: action.status,
+          status: action.status.status,
+          lastFeedTime: action.status.lastFeedTime
+
         },
       };
   }
