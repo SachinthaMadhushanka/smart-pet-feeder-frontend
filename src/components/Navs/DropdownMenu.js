@@ -3,7 +3,7 @@ import { Link } from "react-scroll";
 import { Link as DomLink, useHistory } from "react-router-dom";
 import HistoryIcon from "@material-ui/icons/History";
 import InfoIcon from "@material-ui/icons/Info";
-import VideoIcon from "@material-ui/icons/OndemandVideo";
+import PhotoCamera from "@material-ui/icons/PhotoCamera";
 import NotificationsIcon from "@material-ui/icons/Notifications";
 import NotificationAddIcon from "@material-ui/icons/AddAlert";
 import MessageIcon from "@material-ui/icons/Email";
@@ -148,8 +148,8 @@ const DropdownMenu = (props) => {
               history.push(`${process.env.PUBLIC_URL}/user/video`);
             }}
           >
-            Video
-            <VideoIcon className="pb-1" />
+            Watch
+            <PhotoCamera className="pb-1" />
           </DomLink>
         )}
         {isLoggedIn && (
